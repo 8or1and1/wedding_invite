@@ -399,17 +399,30 @@ body {
 }
 
 @media (max-width: 768px) {
+    .color-palette-section {
+        padding: 60px 20px;
+    }
+
+    .color-palette-text {
+        margin-bottom: 60px;
+    }
+
     .color-circles {
-        gap: 20px;
+        gap: 25px;
+        margin-top: 30px;
+        margin-bottom: 20px;
     }
 
     .color-circle {
         width: 100px;
         height: 100px;
+        margin-bottom: 40px;
     }
 
     .color-name {
         font-size: 12px;
+        bottom: -35px;
+        white-space: nowrap;
     }
 
     .gallery-grid {
