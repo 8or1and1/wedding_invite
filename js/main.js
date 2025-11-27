@@ -19,14 +19,21 @@ class WeddingSite {
         const audio = document.getElementById('wedding-music');
         const musicToggle = document.getElementById('music-toggle');
         let isPlaying = false;
+        let musicStarted = false;
 
-        const playMusic = () => {
+        const playMusic = async () => {
+            if (musicStarted) return;
+            
             audio.volume = 0.3;
-            audio.play().catch(error => {
-                console.log('Автовоспроизведение заблокировано браузером');
-            });
-            isPlaying = true;
-            musicToggle.innerHTML = '<span class="music-icon">🔊</span>';
+            try {
+                await audio.play();
+                isPlaying = true;
+                musicStarted = true;
+                musicToggle.innerHTML = '<span class="music-icon">🔊</span>';
+                this.removeInteractionListeners();
+            } catch (error) {
+                console.log('Автовоспроизведение заблокировано, ожидаю взаимодействия пользователя');
+            }
         };
 
         const pauseMusic = () => {
@@ -35,6 +42,20 @@ class WeddingSite {
             musicToggle.innerHTML = '<span class="music-icon">🔇</span>';
         };
 
+        const startMusicOnInteraction = () => {
+            if (!musicStarted) {
+                playMusic();
+            }
+        };
+
+        this.interactionListeners = [
+            { event: 'click', handler: startMusicOnInteraction },
+            { event: 'scroll', handler: startMusicOnInteraction },
+            { event: 'touchstart', handler: startMusicOnInteraction },
+            { event: 'keydown', handler: startMusicOnInteraction }
+        ];
+
+        this.addInteractionListeners();
         playMusic();
 
         musicToggle.addEventListener('click', () => {
@@ -48,6 +69,18 @@ class WeddingSite {
         audio.addEventListener('ended', () => {
             audio.currentTime = 0;
             audio.play();
+        });
+    }
+
+    addInteractionListeners() {
+        this.interactionListeners.forEach(({ event, handler }) => {
+            document.addEventListener(event, handler, { once: true, passive: true });
+        });
+    }
+
+    removeInteractionListeners() {
+        this.interactionListeners.forEach(({ event, handler }) => {
+            document.removeEventListener(event, handler);
         });
     }
 
