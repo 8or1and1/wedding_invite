@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Свадебное приглашение</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="wedding-music" loop>
+        <source src="static/audio/05 - Ed Sheeran - Perfect.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control">
+        <button id="music-toggle" class="music-btn" aria-label="Включить/выключить музыку">
+            <span class="music-icon">🎵</span>
+        </button>
+    </div>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="main-title">Мы приглашаем вас</h1>
+            <h2 class="subtitle">на нашу свадьбу</h2>
+            <div class="decorative-line"></div>
+            <p class="date-place">Скоро мы станем семьей</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </header>
+
+    <section class="invitation-section">
+        <div class="container">
+            <h2 class="section-title">Дорогие друзья и близкие!</h2>
+            <p class="invitation-text">
+                Мы с радостью приглашаем вас разделить с нами один из самых важных дней в нашей жизни. 
+                Ваше присутствие сделает этот день еще более особенным и незабываемым.
+            </p>
+            <p class="invitation-text">
+                Мы будем счастливы видеть вас на нашем торжестве и провести этот прекрасный день вместе!
+            </p>
+        </div>
+    </section>
+
+    <section class="color-palette-section">
+        <div class="container">
+            <h2 class="section-title">Цветовая гамма</h2>
+            <p class="color-palette-text">
+                Уважаемые гости, мы будем рады, если вы будете придерживаться этих цветов в своем наряде на наше мероприятие
+            </p>
+            <div class="color-circles">
+                <div class="color-circle" style="background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);">
+                    <span class="color-name">Кремовый</span>
+                </div>
+                <div class="color-circle" style="background: linear-gradient(135deg, #d4a574 0%, #c8966a 100%);">
+                    <span class="color-name">Бежевый</span>
+                </div>
+                <div class="color-circle" style="background: linear-gradient(135deg, #b8860b 0%, #9a7209 100%);">
+                    <span class="color-name">Золотой</span>
+                </div>
+                <div class="color-circle" style="background: linear-gradient(135deg, #8b7355 0%, #6b5a45 100%);">
+                    <span class="color-name">Коричневый</span>
+                </div>
+                <div class="color-circle" style="background: linear-gradient(135deg, #f0e6d2 0%, #e0d4c0 100%);">
+                    <span class="color-name">Песочный</span>
+                </div>
+                <div class="color-circle" style="background: linear-gradient(135deg, #d2b48c 0%, #c4a882 100%);">
+                    <span class="color-name">Тан</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Наши моменты</h2>
+            <div class="gallery-grid" id="gallery">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p class="footer-text">С любовью и нетерпением ждем встречи с вами!</p>
+            <div class="decorative-line"></div>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">&#10094;</span>
+        <span class="lightbox-next">&#10095;</span>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="Gallery image">
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
